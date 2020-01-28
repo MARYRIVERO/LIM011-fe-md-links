@@ -1,0 +1,25 @@
+{
+  "name": "lim011-fe-md-links",
+  "version": "1.0.0",
+  "description": "Creación de libreria",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MARYRIVERO/LIM011-fe-md-links.git"
+  },
+  "author": "Marilyn Rivero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MARYRIVERO/LIM011-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/MARYRIVERO/LIM011-fe-md-links#readme",
+  "dependencies": {
+    "htmlhint": "^0.11.0"
+  }
+}
