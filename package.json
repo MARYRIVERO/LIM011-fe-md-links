@@ -7,7 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint",
+    "test": "jest --coverage",
+    "start": "serve src/"
   },
   "repository": {
     "type": "git",
