@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MARYRIVERO/LIM011-fe-md-links#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "dev": "^0.1.3",
     "htmlhint": "^0.11.0",
     "jest": "^25.1.0"

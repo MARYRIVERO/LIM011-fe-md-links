@@ -1,5 +1,6 @@
 const functionsIndex = require('../src/index.js');
 
+
 describe('isAbsolute', () => {
   it('retorna true si la ruta es absoluta', () => {
     expect(functionsIndex.isAbsolute('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
@@ -10,8 +11,17 @@ describe('isAbsolute', () => {
   });
 });
 
-describe('convertirAbsoluta', () => {
+describe('convertToAbsolute', () => {
   it('resuelve una ruta relativa a absoluta', () => {
-    expect(functionsIndex.convertirAbsoluta('./README.md')).toBe('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md');
+    expect(functionsIndex.convertToAbsolute('./README.md')).toBe('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md');
+  });
+});
+
+describe('isArchive', () => {
+  it('identifica si la ruta recibida es un archivo', () => {
+    expect(functionsIndex.isArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
+  });
+  it('identifica si la ruta recibida es un archivo', () => {
+    expect(functionsIndex.isArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/')).toBe(false);
   });
 });
