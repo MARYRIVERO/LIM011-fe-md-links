@@ -22,6 +22,6 @@ describe('isArchive', () => {
     expect(functionsIndex.isArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
   });
   it('identifica si la ruta recibida es un archivo', () => {
-    expect(functionsIndex.isArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/')).toBe(false);
+    expect(functionsIndex.isArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/ ')).toBe(false);
   });
 });
