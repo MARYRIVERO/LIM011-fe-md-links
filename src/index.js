@@ -14,10 +14,14 @@ const identifyFile = (route) => {
 };
 console.log(identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md'));
 
+
+const thisIsMd = (route) => (path.extname(route) === '.md');
+
 const functionsIndex = {
   isAbsolute: pathAbsolute,
   convertToAbsolute: resolveToAbsolute,
   isArchive: identifyFile,
+  isArchiveMd: thisIsMd,
 
 };
 
