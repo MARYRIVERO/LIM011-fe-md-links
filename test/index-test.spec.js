@@ -46,3 +46,15 @@ describe('thisIsMd', () => {
     expect(functions.thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
   });
 });
+
+describe('archiveRead', () => {
+  it('Debería retornar function', () => {
+    expect(typeof functions.archiveRead).toBe('function');
+  });
+  it('Debería retornar false si no se lee el archivo', () => {
+    expect(functions.archiveRead('')).toBe(false);
+  });
+  it('Debería retornar true si se lee el archivo', () => {
+    expect(functions.archiveRead('')).toBe(true);
+  });
+});

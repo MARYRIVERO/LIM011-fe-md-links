@@ -19,6 +19,18 @@ const thisIsMd = (route) => (fs.existsSync(route) && path.extname(route) === '.m
 console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/'));
 
 
+// fs.readFileSync();
+console.log(fs.readFileSync('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md', 'utf-8'));
+
+
+// const readContentOfFile = (route) => {
+//   try {
+//     return fs.readFileSync(route);
+//   } catch (err) {
+//     return '';
+//   }
+// };
+
 // const thisIsMd = (route) => {
 //   const pathExt = path.extname(route);
 
