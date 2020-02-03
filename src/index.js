@@ -15,17 +15,30 @@ const identifyFile = (route) => {
 console.log(identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md'));
 
 
-const thisIsMd = (route) => (path.extname(route) === '.md');
+const thisIsMd = (route) => (fs.existsSync(route) && path.extname(route) === '.md');
+console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/'));
 
-const functionsIndex = {
-  isAbsolute: pathAbsolute,
-  convertToAbsolute: resolveToAbsolute,
-  isArchive: identifyFile,
-  isArchiveMd: thisIsMd,
 
+// const thisIsMd = (route) => {
+//   const pathExt = path.extname(route);
+
+//   if (pathExt === '.md') {
+//     return true;
+//   }
+//   return false;
+// };
+
+// const functionsIndex = {
+//   isAbsolute: pathAbsolute,
+//   convertToAbsolute: resolveToAbsolute,
+//   isArchive: identifyFile,
+//   isArchiveMd: thisIsMd,
+// };
+// module.exports = functionsIndex;
+
+module.exports = {
+  pathAbsolute,
+  resolveToAbsolute,
+  identifyFile,
+  thisIsMd,
 };
-
-module.exports = functionsIndex;
-
-// /home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src
-// /home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/index.js
