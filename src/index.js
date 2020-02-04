@@ -12,15 +12,28 @@ const identifyFile = (route) => {
   const archive = read.isFile();
   return archive;
 };
-console.log(identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md'));
+// console.log(identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md'));
 
 
 const thisIsMd = (route) => (fs.existsSync(route) && path.extname(route) === '.md');
-console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/'));
+// console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/'));
 
+const verifityFiles = (route) => {
+  let pathArchive = [];
+  if (identifyFile(route)) {
+    pathArchive.push(route);
+  } else {
+    const files = fs.readdirSync(route);
+    files.forEach((file) => {
+      const routeActuality = path.join(route, file);
+      pathArchive = pathArchive.concat(verifityFiles(routeActuality));
+    });
+  }
+  return pathArchive;
+};
+console.log(verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
 
 // fs.readFileSync();
-console.log(fs.readFileSync('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md', 'utf-8'));
 
 
 // const readContentOfFile = (route) => {
@@ -53,4 +66,5 @@ module.exports = {
   resolveToAbsolute,
   identifyFile,
   thisIsMd,
+  verifityFiles,
 };

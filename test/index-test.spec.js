@@ -46,3 +46,16 @@ describe('thisIsMd', () => {
     expect(functions.thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
   });
 });
+
+
+describe('verifityFiles', () => {
+  it('Debería retornar function', () => {
+    expect(typeof functions.verifityFiles).toBe('function');
+  });
+  it('Debería retornar si el file no tiene extensión MD', () => {
+    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json']);
+  });
+  it('Debería retornar si el file no tiene extensión MD', () => {
+    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/')).toEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/documents.js', '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md']);
+  });
+});
