@@ -61,6 +61,49 @@ console.log(verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/t
 // };
 // module.exports = functionsIndex;
 
+
+// const searchMds = (routeFile) => {
+//   const route = getAbsolutePath(routeFile);
+//   let arrayFileMd = [];
+//   if (isFile(route)) {
+//     if (isMd(route)) {
+//       arrayFileMd.push(route);
+//     }
+//   } else {
+//     // const listOfFiles = fs.readdirSync(route);
+//     const listOfFiles = getListOfFiles(route);
+//     listOfFiles.forEach((file) => {
+//       arrayFileMd = arrayFileMd.concat(searchMds(path.join(route, file)));
+//     });
+//   }
+//   return arrayFileMd;
+// };
+
+
+
+
+
+// const saveLinksMds = (inputRoute) => {
+//   const arrayOfRoutes = searchMds(inputRoute);
+//   const arrayofLinks = [];
+//   const render = new marked.Renderer();
+//   arrayOfRoutes.forEach((route) => {
+//     // const file = fs.readFileSync(route);
+//     const file = readContentOfFile(route);
+//     render.link = (hrefFile, titleFile, textFile) => {
+//       arrayofLinks.push({
+//         href: hrefFile,
+//         text: textFile.substring(0, 50),
+//         path: route,
+//       });
+//     };
+//     marked(file.toString(), {
+//       renderer: render,
+//     });
+//   });
+//   return arrayofLinks;
+// };
+
 module.exports = {
   pathAbsolute,
   resolveToAbsolute,
