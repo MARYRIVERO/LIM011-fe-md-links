@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // eslint-disable-next-line no-unused-vars
 const path = require('path');
 const fs = require('fs');
@@ -40,7 +41,8 @@ const readArchive = (route) => {
   const lectureTheArchive = fs.readFileSync(route, 'utf8');
   return lectureTheArchive;
 };
-console.log(readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
+
+// console.log(readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
 
 
 // const readContentOfFile = (route) => {
