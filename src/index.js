@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const path = require('path');
 const fs = require('fs');
+// const marked = require('marked');
 
 // eslint-disable-next-line no-unused-vars
 const pathAbsolute = (route) => path.isAbsolute(route);
@@ -13,10 +14,6 @@ const identifyFile = (route) => {
   return archive;
 };
 // console.log(identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md'));
-
-
-const thisIsMd = (route) => (fs.existsSync(route) && path.extname(route) === '.md');
-// console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/'));
 
 const verifityFiles = (route) => {
   let pathArchive = [];
@@ -31,9 +28,19 @@ const verifityFiles = (route) => {
   }
   return pathArchive;
 };
-console.log(verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
+// console.log(verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json'));
 
-// fs.readFileSync();
+const thisIsMd = (route) => {
+  const arrayTheFilesMd = verifityFiles(route).filter((element) => (path.extname(element) === '.md'));
+  return arrayTheFilesMd;
+};
+// console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
+
+const readArchive = (route) => {
+  const lectureTheArchive = fs.readFileSync(route, 'utf8');
+  return lectureTheArchive;
+};
+console.log(readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
 
 
 // const readContentOfFile = (route) => {
@@ -79,10 +86,6 @@ console.log(verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/t
 //   return arrayFileMd;
 // };
 
-
-
-
-
 // const saveLinksMds = (inputRoute) => {
 //   const arrayOfRoutes = searchMds(inputRoute);
 //   const arrayofLinks = [];
@@ -108,6 +111,7 @@ module.exports = {
   pathAbsolute,
   resolveToAbsolute,
   identifyFile,
-  thisIsMd,
   verifityFiles,
+  thisIsMd,
+  readArchive,
 };

@@ -35,27 +35,32 @@ describe('identifyFile', () => {
   });
 });
 
-describe('thisIsMd', () => {
-  it('Debería retornar function', () => {
-    expect(typeof functions.thisIsMd).toBe('function');
-  });
-  it('Debería retornar false si el file no tiene extensión MD', () => {
-    expect(functions.thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toBe(false);
-  });
-  it('Debería retornar true si el file tiene extensión MD', () => {
-    expect(functions.thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
-  });
-});
-
-
 describe('verifityFiles', () => {
   it('Debería retornar function', () => {
     expect(typeof functions.verifityFiles).toBe('function');
   });
-  it('Debería retornar si el file no tiene extensión MD', () => {
-    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json']);
+  it('Debería retornar un array de archivos', () => {
+    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toStrictEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json']);
   });
-  it('Debería retornar si el file no tiene extensión MD', () => {
-    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/')).toEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/documents.js', '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md']);
+});
+
+describe('thisIsMd', () => {
+  const arrayInput = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
+  const arrayOutput = ['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
+
+  it('Debería retornar function', () => {
+    expect(typeof functions.thisIsMd).toBe('function');
+  });
+  it('Debería retornar un array de archivos .md', () => {
+    expect(functions.thisIsMd(arrayInput)).toStrictEqual(arrayOutput);
+  });
+});
+
+describe('readArchive', () => {
+  it('Debería retornar function', () => {
+    expect(typeof functions.readArchive).toBe('function');
+  });
+  it('Debería leer un archivo', () => {
+    expect(functions.readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md')).toStrictEqual('esto es un texto');
   });
 });
