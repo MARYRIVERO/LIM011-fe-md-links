@@ -46,7 +46,9 @@ describe('verifityFiles', () => {
 
 describe('thisIsMd', () => {
   const arrayInput = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
-  const arrayOutput = ['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
+  const arrayOutput = [
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
 
   it('Debería retornar function', () => {
     expect(typeof functions.thisIsMd).toBe('function');
@@ -62,5 +64,25 @@ describe('readArchive', () => {
   });
   it('Debería leer un archivo', () => {
     expect(functions.readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md')).toStrictEqual('esto es un texto');
+  });
+});
+describe('saveLinksMds', () => {
+  it('Debería retornar function', () => {
+    expect(typeof functions.saveLinksMds).toBe('function');
+  });
+  it('Debería buscar los links presentes', () => {
+    expect(functions.saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')).toStrictEqual([
+      {
+        href: 'https://nodejs.org/es/',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        text: 'Node.js',
+      },
+
+      {
+        href: 'https://developers.google.com/v8/',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        text: 'motor de JavaScript V8 de Chrome',
+      },
+    ]);
   });
 });

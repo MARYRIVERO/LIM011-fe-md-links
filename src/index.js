@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 const path = require('path');
 const fs = require('fs');
-// const marked = require('marked');
+const marked = require('marked');
 
 // eslint-disable-next-line no-unused-vars
 const pathAbsolute = (route) => path.isAbsolute(route);
@@ -43,6 +43,30 @@ const readArchive = (route) => {
 };
 
 // console.log(readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
+
+
+const saveLinksMds = (inputRoute) => {
+  const arrayOfRoutes = thisIsMd(inputRoute);
+  const arrayofLinks = [];
+  const render = new marked.Renderer();
+  arrayOfRoutes.forEach((route) => {
+    // const file = fs.readFileSync(route);
+    const file = readArchive(route);
+    render.link = (hrefFile, titleFile, textFile) => {
+      arrayofLinks.push({
+        href: hrefFile,
+        text: textFile.substring(0, 50),
+        path: route,
+      });
+    };
+    marked(file.toString(), {
+      renderer: render,
+    });
+  });
+  return arrayofLinks;
+};
+// eslint-disable-next-line no-console
+// console.log(saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
 
 
 // const readContentOfFile = (route) => {
@@ -88,26 +112,6 @@ const readArchive = (route) => {
 //   return arrayFileMd;
 // };
 
-// const saveLinksMds = (inputRoute) => {
-//   const arrayOfRoutes = searchMds(inputRoute);
-//   const arrayofLinks = [];
-//   const render = new marked.Renderer();
-//   arrayOfRoutes.forEach((route) => {
-//     // const file = fs.readFileSync(route);
-//     const file = readContentOfFile(route);
-//     render.link = (hrefFile, titleFile, textFile) => {
-//       arrayofLinks.push({
-//         href: hrefFile,
-//         text: textFile.substring(0, 50),
-//         path: route,
-//       });
-//     };
-//     marked(file.toString(), {
-//       renderer: render,
-//     });
-//   });
-//   return arrayofLinks;
-// };
 
 module.exports = {
   pathAbsolute,
@@ -116,4 +120,5 @@ module.exports = {
   verifityFiles,
   thisIsMd,
   readArchive,
+  saveLinksMds,
 };
