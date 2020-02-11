@@ -1,5 +1,26 @@
-
+// s
 const functions = require('../src/index.js');
+const validate = require('../src/validate.js');
+
+const ruta = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
+const output = [
+  {
+    href: 'https://nodejs.org/es/',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    status: 200,
+    statusText: 'OK',
+    text: 'Node.js',
+  },
+
+  {
+    href: 'https://developers.google.com/v8/',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    status: 200,
+    statusText: 'OK',
+    text: 'motor de JavaScript V8 de Chrome',
+  },
+];
+
 
 describe('.pathAbsolute', () => {
   it('Debería retornar function', () => {
@@ -85,4 +106,16 @@ describe('saveLinksMds', () => {
       },
     ]);
   });
+});
+
+it('Debería retornar function', (done) => {
+  expect(typeof validate.validateLink).toBe('function');
+  done();
+});
+it('Deberia retornar status 200 para un link disponible', (done) => {
+  validate.validateLink(ruta)
+    .then((response) => {
+      expect(response).toStrictEqual(output);
+      done();
+    });
 });
