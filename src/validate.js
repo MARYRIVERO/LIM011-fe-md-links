@@ -30,7 +30,7 @@ const validateLink = (route) => {
 };
 
 // validateLink('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
-// .then((res) => console.log(res));
+//   .then((res) => console.log(res));
 
 module.exports = {
   validateLink,

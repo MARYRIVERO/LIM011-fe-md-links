@@ -21,6 +21,13 @@ const output = [
     statusText: 'OK',
     text: 'motor de JavaScript V8 de Chrome',
   },
+  {
+    href: 'https://nodefdjs.org/es/',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    text: 'Noesuunlink.js',
+    status: 'ERR',
+    statusText: 'FAIL',
+  },
 ];
 
 
@@ -106,18 +113,25 @@ describe('saveLinksMds', () => {
         path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'motor de JavaScript V8 de Chrome',
       },
+      {
+        href: 'https://nodefdjs.org/es/',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        text: 'Noesuunlink.js',
+      },
     ]);
   });
 });
 
-it('Debería retornar function', (done) => {
-  expect(typeof validate.validateLink).toBe('function');
-  done();
-});
-it('Deberia retornar status 200 para un link disponible', (done) => {
-  validate.validateLink(ruta)
-    .then((response) => {
-      expect(response).toStrictEqual(output);
-      done();
-    });
+describe('validateLink', () => {
+  it('Debería retornar function', (done) => {
+    expect(typeof validate.validateLink).toBe('function');
+    done();
+  });
+  it('Deberia retornar status 200 para un link disponible', (done) => {
+    validate.validateLink(ruta)
+      .then((response) => {
+        expect(response).toStrictEqual(output);
+        done();
+      });
+  });
 });

@@ -66,7 +66,7 @@ const saveLinksMds = (inputRoute) => {
   return arrayofLinks;
 };
 // eslint-disable-next-line no-console
-console.log(saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
+// console.log(saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
 
 
 // const readContentOfFile = (route) => {
