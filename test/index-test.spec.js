@@ -1,8 +1,8 @@
-// const fetchMock = require('fetch-mock');
+const fetchMock = require('fetch-mock');
 const functions = require('../src/index.js');
 const validate = require('../src/validate.js');
 
-// fetchMock.mock('*, 200');
+fetchMock.mock('*', 200);
 
 const ruta = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
 const output = [
@@ -109,13 +109,6 @@ describe('saveLinksMds', () => {
     ]);
   });
 });
-// fetchMock
-//   .mock('https://www.markdownguide.org/getting-started/', 200)
-//   .mock('https://developer.mozilla.org/es/docs/Web/JavaScript', 200)
-//   .mock('https://hackwildm/article/creating-a-command', () => {
-//     throw new Error('ERROR_MESSAGE');
-//   })
-//   .mock('https://medium.com/@josephcardillo/the-difference', 404);
 
 it('Debería retornar function', (done) => {
   expect(typeof validate.validateLink).toBe('function');

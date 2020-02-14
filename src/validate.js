@@ -1,14 +1,12 @@
 const fetch = require('node-fetch');
 const routes = require('../src/index.js');
-// const fetchMock = require('fetch-mock');
-
-// fetchMock.mock('*', 200);
-
 
 const validateLink = (route) => {
   const arrayOfLinks = routes.saveLinksMds(route);
+  // console.log(arrayOfLinks);
   const arrayPromises = arrayOfLinks.map((link) => fetch(link.href)
     .then((response) => {
+      // console.log(response);
       if (response.status >= 200 && response.status < 400) {
         return {
           ...link,
@@ -16,6 +14,7 @@ const validateLink = (route) => {
           statusText: response.statusText,
         };
       }
+      // console.log(response.status);
       return {
         ...link,
         status: response.status,
@@ -29,6 +28,9 @@ const validateLink = (route) => {
     })));
   return Promise.all(arrayPromises);
 };
+
+// validateLink('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
+// .then((res) => console.log(res));
 
 module.exports = {
   validateLink,
