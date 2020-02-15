@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581723915273" clover="3.2.0">
-  <project timestamp="1581723915273" name="All files">
-    <metrics statements="46" coveredstatements="45" conditionals="6" coveredconditionals="5" methods="15" coveredmethods="15" elements="67" coveredelements="65" complexity="0" loc="46" ncloc="46" packages="1" files="2" classes="2"/>
+<coverage generated="1581725239660" clover="3.2.0">
+  <project timestamp="1581725239660" name="All files">
+    <metrics statements="53" coveredstatements="52" conditionals="6" coveredconditionals="5" methods="19" coveredmethods="19" elements="78" coveredelements="76" complexity="0" loc="53" ncloc="53" packages="1" files="3" classes="3"/>
     <file name="index.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/index.js">
       <metrics statements="35" coveredstatements="35" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="11"/>
       <line num="3" count="1" type="stmt"/>
@@ -39,6 +39,16 @@
       <line num="62" count="2" type="stmt"/>
       <line num="66" count="2" type="stmt"/>
       <line num="116" count="1" type="stmt"/>
+    </file>
+    <file name="stats.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/stats.js">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
     </file>
     <file name="validate.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/validate.js">
       <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
