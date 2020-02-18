@@ -68,51 +68,6 @@ const saveLinksMds = (inputRoute) => {
 // eslint-disable-next-line no-console
 // console.log(saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
 
-
-// const readContentOfFile = (route) => {
-//   try {
-//     return fs.readFileSync(route);
-//   } catch (err) {
-//     return '';
-//   }
-// };
-
-// const thisIsMd = (route) => {
-//   const pathExt = path.extname(route);
-
-//   if (pathExt === '.md') {
-//     return true;
-//   }
-//   return false;
-// };
-
-// const functionsIndex = {
-//   isAbsolute: pathAbsolute,
-//   convertToAbsolute: resolveToAbsolute,
-//   isArchive: identifyFile,
-//   isArchiveMd: thisIsMd,
-// };
-// module.exports = functionsIndex;
-
-
-// const searchMds = (routeFile) => {
-//   const route = getAbsolutePath(routeFile);
-//   let arrayFileMd = [];
-//   if (isFile(route)) {
-//     if (isMd(route)) {
-//       arrayFileMd.push(route);
-//     }
-//   } else {
-//     // const listOfFiles = fs.readdirSync(route);
-//     const listOfFiles = getListOfFiles(route);
-//     listOfFiles.forEach((file) => {
-//       arrayFileMd = arrayFileMd.concat(searchMds(path.join(route, file)));
-//     });
-//   }
-//   return arrayFileMd;
-// };
-
-
 module.exports = {
   pathAbsolute,
   resolveToAbsolute,

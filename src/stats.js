@@ -4,6 +4,10 @@ const uniquesLinks = (arrayOfLinks) => {
   return countUniqueLinks.size;
 };
 
+// eslint-disable-next-line max-len
+// console.log(uniquesLinks(['/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md']));
+
+
 const brokenLinks = (arrayOfLinks) => {
   const countBrokenLinks = arrayOfLinks.filter((link) => link.statusText === 'FAIL').length;
   return countBrokenLinks;

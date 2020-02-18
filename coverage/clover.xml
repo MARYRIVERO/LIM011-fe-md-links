@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581725239660" clover="3.2.0">
-  <project timestamp="1581725239660" name="All files">
+<coverage generated="1582064474982" clover="3.2.0">
+  <project timestamp="1582064474983" name="All files">
     <metrics statements="53" coveredstatements="52" conditionals="6" coveredconditionals="5" methods="19" coveredmethods="19" elements="78" coveredelements="76" complexity="0" loc="53" ncloc="53" packages="1" files="3" classes="3"/>
-    <file name="index.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/index.js">
+    <file name="index.js" path="/home/terislos/Proyecto nuevo/LIM011-fe-md-links/src/index.js">
       <metrics statements="35" coveredstatements="35" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="11"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="12" count="1" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
       <line num="13" count="11" type="stmt"/>
       <line num="14" count="11" type="stmt"/>
       <line num="15" count="11" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
       <line num="20" count="9" type="stmt"/>
       <line num="21" count="9" type="cond" truecount="2" falsecount="0"/>
       <line num="22" count="7" type="stmt"/>
@@ -22,13 +22,13 @@
       <line num="26" count="5" type="stmt"/>
       <line num="27" count="5" type="stmt"/>
       <line num="30" count="9" type="stmt"/>
-      <line num="34" count="1" type="stmt"/>
+      <line num="34" count="2" type="stmt"/>
       <line num="35" count="6" type="stmt"/>
       <line num="36" count="3" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
+      <line num="40" count="2" type="stmt"/>
       <line num="41" count="3" type="stmt"/>
       <line num="42" count="3" type="stmt"/>
-      <line num="48" count="1" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
       <line num="49" count="2" type="stmt"/>
       <line num="50" count="2" type="stmt"/>
       <line num="51" count="2" type="stmt"/>
@@ -38,19 +38,19 @@
       <line num="56" count="6" type="stmt"/>
       <line num="62" count="2" type="stmt"/>
       <line num="66" count="2" type="stmt"/>
-      <line num="116" count="1" type="stmt"/>
+      <line num="71" count="2" type="stmt"/>
     </file>
-    <file name="stats.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/stats.js">
+    <file name="stats.js" path="/home/terislos/Proyecto nuevo/LIM011-fe-md-links/src/stats.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
-      <line num="3" count="4" type="stmt"/>
+      <line num="3" count="5" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="8" count="4" type="stmt"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="12" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="5" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
     </file>
-    <file name="validate.js" path="/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/src/validate.js">
+    <file name="validateLinks.js" path="/home/terislos/Proyecto nuevo/LIM011-fe-md-links/src/validateLinks.js">
       <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
