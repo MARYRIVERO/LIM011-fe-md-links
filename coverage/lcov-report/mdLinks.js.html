@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for stats.js</title>
+    <title>Code coverage report for mdLinks.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> stats.js</h1>
+        <h1><a href="index.html">All files</a> mdLinks.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
@@ -74,46 +74,40 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-const uniquesLinks = (arrayOfLinks) =&gt; {
-  const countUniqueLinks = new Set(arrayOfLinks.map((link) =&gt; link.href));
-  return countUniqueLinks.size;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fs = require('fs');
+const path = require('path');
+const functions = require('./index.js');
+const validate = require('../src/validateLinks.js');
+&nbsp;
+const mdLinks = (route, options) =&gt; {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (fs.existsSync(route)) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (options &amp;&amp; options.validate) {
+<span class="cstat-no" title="statement not covered" >      return validate.linksValidate(route);</span>
+    } return functions.saveLinksMds(route);
+  } <span class="cstat-no" title="statement not covered" >return (new Error(`No se encuentra la ruta: ${path.resolve(route)}`));</span>
 };
 &nbsp;
 // eslint-disable-next-line max-len
-// console.log(uniquesLinks(['/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md']));
+// console.log(mdLinks('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md', 'options'));
 &nbsp;
-&nbsp;
-const brokenLinks = (arrayOfLinks) =&gt; {
-  const countBrokenLinks = arrayOfLinks.filter((link) =&gt; link.statusText === 'FAIL').length;
-  return countBrokenLinks;
-};
-&nbsp;
-module.exports = {
-  uniquesLinks,
-  brokenLinks,
-};
+module.exports = { mdLinks };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

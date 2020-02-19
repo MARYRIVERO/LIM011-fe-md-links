@@ -29,8 +29,8 @@ const validateLink = (route) => {
   return Promise.all(arrayPromises);
 };
 
-// validateLink('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
-//   .then((res) => console.log(res));
+validateLink('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
+  .then((res) => console.log(res));
 
 module.exports = {
   validateLink,
