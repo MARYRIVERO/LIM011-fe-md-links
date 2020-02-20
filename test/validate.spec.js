@@ -1,10 +1,10 @@
 const validate = require('../src/validateLinks.js');
 
-const ruta = '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
+const ruta = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
 const output = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 200,
     statusText: 'OK',
     text: 'Node.js',
@@ -12,14 +12,14 @@ const output = [
 
   {
     href: 'https://developers.google.com/v8/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 200,
     statusText: 'OK',
     text: 'motor de JavaScript V8 de Chrome',
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     text: 'Noesuunlink.js',
     status: 'ERR',
     statusText: 'FAIL',

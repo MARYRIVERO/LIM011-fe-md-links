@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/11</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/11</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -74,17 +74,29 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,18 +106,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fs = require('fs');
 const path = require('path');
 const functions = require('./index.js');
-const validate = require('../src/validateLinks.js');
+const functionValidate = require('../src/validateLinks.js');
 &nbsp;
-const mdLinks = (route, options) =&gt; {
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (fs.existsSync(route)) {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (options &amp;&amp; options.validate) {
-<span class="cstat-no" title="statement not covered" >      return validate.linksValidate(route);</span>
-    } return functions.saveLinksMds(route);
-  } <span class="cstat-no" title="statement not covered" >return (new Error(`No se encuentra la ruta: ${path.resolve(route)}`));</span>
-};
+const mdLinks = (route, options) =&gt; new Promise((resolve, reject) =&gt; {
+  if (fs.existsSync(route)) {
+    if (options.validate === true) {
+      resolve(functionValidate.validateLink(route));
+    } if (options.validate === false) {
+      resolve(functions.saveLinksMds(route));
+    }
+  } else {
+    reject(new Error(`No se encuentra la ruta: ${path.resolve(route)}`));
+  }
+});
+&nbsp;
+// mdLinks('no route', { validate: true }).catch((e) =&gt; console.log(e));
 &nbsp;
 // eslint-disable-next-line max-len
-// console.log(mdLinks('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md', 'options'));
+// console.log(mdLinks('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md', { validate: true }));
 &nbsp;
 module.exports = { mdLinks };
 &nbsp;</pre></td></tr></table></pre>
@@ -115,7 +133,7 @@ module.exports = { mdLinks };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 18 2020 19:17:56 GMT-0500 (GMT-05:00)
+                at Wed Feb 19 2020 20:28:21 GMT-0500 (GMT-05:00)
             </div>
         </div>
         <script src="prettify.js"></script>

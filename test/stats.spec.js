@@ -3,21 +3,21 @@ const stats = require('../src/stats.js');
 const array = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 200,
     statusText: 'OK',
     text: 'Node.js',
   },
   {
     href: 'https://nodejs.org/es/.co',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 404,
     statusText: 'FAIL',
     text: 'Node.js',
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 'ERR',
     statusText: 'FAIL',
     text: 'Noesuunlink.js',
@@ -25,14 +25,14 @@ const array = [
 
   {
     href: 'https://noesunlink.or/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 'ERR',
     statusText: 'FAIL',
     text: 'Noesuunlink.js',
   },
   {
     href: 'https://noesunlink.or/es/',
-    path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     status: 'ERR',
     statusText: 'FAIL',
     text: 'Noesuunlink.js',

@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const routes = require('./index.js');
 // `${process.cwd()}/README.md`
+
+
 const validateLink = (route) => {
   const arrayOfLinks = routes.saveLinksMds(route);
   // console.log(arrayOfLinks);
@@ -29,8 +31,8 @@ const validateLink = (route) => {
   return Promise.all(arrayPromises);
 };
 
-validateLink('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
-  .then((res) => console.log(res));
+// validateLink('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')
+//   .then((res) => console.log(res));
 
 module.exports = {
   validateLink,

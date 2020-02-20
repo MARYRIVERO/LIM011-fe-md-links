@@ -9,7 +9,7 @@ describe('.pathAbsolute', () => {
     expect(typeof functions.pathAbsolute).toBe('function');
   });
   it('retorna true si la ruta es absoluta', () => {
-    expect(functions.pathAbsolute('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
+    expect(functions.pathAbsolute('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
   });
 
   it('retorna false si la ruta relativa', () => {
@@ -22,7 +22,7 @@ describe('resolveToAbsolute', () => {
     expect(typeof functions.resolveToAbsolute).toBe('function');
   });
   it('resuelve una ruta relativa a absoluta', () => {
-    expect(functions.resolveToAbsolute('./README.md')).toBe('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/README.md');
+    expect(functions.resolveToAbsolute('./README.md')).toBe('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md');
   });
 });
 
@@ -31,10 +31,10 @@ describe('identifyFile', () => {
     expect(typeof functions.identifyFile).toBe('function');
   });
   it('identifica si la ruta recibida es un archivo', () => {
-    expect(functions.identifyFile('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
+    expect(functions.identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
   });
   it('identifica si la ruta recibida no es un archivo', () => {
-    expect(functions.identifyFile('/home/terislos/Proyecto nuevo/LIM011-fe-md-links')).toBe(false);
+    expect(functions.identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links')).toBe(false);
   });
 });
 
@@ -43,15 +43,15 @@ describe('verifityFiles', () => {
     expect(typeof functions.verifityFiles).toBe('function');
   });
   it('Debería retornar un array de archivos', () => {
-    expect(functions.verifityFiles('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/package.json')).toStrictEqual(['/home/terislos/Proyecto nuevo/LIM011-fe-md-links/package.json']);
+    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toStrictEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json']);
   });
 });
 
 describe('thisIsMd', () => {
-  const arrayInput = '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
+  const arrayInput = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
   const arrayOutput = [
-    '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
 
   it('Debería retornar function', () => {
     expect(typeof functions.thisIsMd).toBe('function');
@@ -66,7 +66,7 @@ describe('readArchive', () => {
     expect(typeof functions.readArchive).toBe('function');
   });
   it('Debería leer un archivo', () => {
-    expect(functions.readArchive('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md')).toStrictEqual('esto es un texto');
+    expect(functions.readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md')).toStrictEqual('esto es un texto');
   });
 });
 describe('saveLinksMds', () => {
@@ -74,21 +74,21 @@ describe('saveLinksMds', () => {
     expect(typeof functions.saveLinksMds).toBe('function');
   });
   it('Debería buscar los links presentes', () => {
-    expect(functions.saveLinksMds('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')).toStrictEqual([
+    expect(functions.saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')).toStrictEqual([
       {
         href: 'https://nodejs.org/es/',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'Node.js',
       },
 
       {
         href: 'https://developers.google.com/v8/',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'motor de JavaScript V8 de Chrome',
       },
       {
         href: 'https://nodefdjs.org/es/',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'Noesuunlink.js',
       },
     ]);
