@@ -15,7 +15,7 @@ const mdLinks = (route, options) => new Promise((resolve, reject) => {
   }
 });
 
-mdLinks('no-route', { validate: true }).catch((e) => console.log(e));
+// mdLinks('no-route', { validate: true }).catch((e) => console.log(e));
 
 // eslint-disable-next-line max-len
 // console.log(mdLinks('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md', { validate: true }));

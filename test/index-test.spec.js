@@ -51,7 +51,8 @@ describe('thisIsMd', () => {
   const arrayInput = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
   const arrayOutput = [
     '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'];
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md',
+    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md'];
 
   it('Debería retornar function', () => {
     expect(typeof functions.thisIsMd).toBe('function');

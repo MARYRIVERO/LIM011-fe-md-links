@@ -1,5 +1,9 @@
+const path = require('path');
 const stats = require('../src/stats.js');
 
+const mdFile = path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md');
+const relativePath = path.join('test', 'pruebas', 'readmefalse.md');
+// /home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md
 const array = [
   {
     href: 'https://nodejs.org/es/',
@@ -59,4 +63,28 @@ describe('Broken links', () => {
     expect(stats.uniquesLinks(array)).toBe(4);
     done();
   });
+});
+
+describe('optionStats', () => {
+  it('Should return links statistics in a string', (done) => stats.optionStats(mdFile)
+    .then((result) => {
+      expect(result).toEqual('Total: 3\nUnique: 3');
+      done();
+    }));
+});
+
+describe('option validate and stats', () => {
+  it('Should return the links statistics and links validations in a string', (done) => stats.optionsValidateStats(mdFile)
+    .then((result) => {
+      expect(result).toEqual('Total: 3\nUnique: 3\nBroken: 2');
+      done();
+    }));
+});
+
+describe('option validate', () => {
+  it('Should return the validated links', (done) => stats.optionValidate(mdFile)
+    .then((result) => {
+      expect(result).toEqual(`${relativePath} https://nodejs.org/es/ OK 200 Node.js\n${relativePath} https://nodejs.org/es/.co FAIL 404 Node.js\n${relativePath} https://nodefdjs.org/es/ FAIL ERR Noesuunlink.js`);
+      done();
+    }));
 });
