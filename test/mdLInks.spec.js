@@ -71,6 +71,6 @@ describe('Md links', () => {
 
   it('should show a message: No se encuentra la ruta', () => functions.mdLinks('no-route')
     .catch((err) => {
-      expect(err.message).toEqual(`No se encuentra la ruta: ${(path.join(process.cwd()), 'no-route')}`);
+      expect(err.message).toEqual(`No se encuentra la ruta: ${path.join(process.cwd(), 'no-route')}`);
     }));
 });
