@@ -9,6 +9,8 @@ const options = {
   stats: false,
   validate: false,
 };
+// /home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md
+// test/pruebas/prueba.md
 
 process.argv.forEach((element) => {
   if (element === '--stats' || element === '--s' || element === 's' || element === 'S') {
