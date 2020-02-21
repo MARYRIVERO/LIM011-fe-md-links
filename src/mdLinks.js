@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const functions = require('./index.js');
-const functionValidate = require('../src/validateLinks.js');
+const functionValidate = require('./validate.js');
+
 
 const mdLinks = (route, options) => new Promise((resolve, reject) => {
   if (fs.existsSync(route)) {
@@ -11,6 +12,7 @@ const mdLinks = (route, options) => new Promise((resolve, reject) => {
       resolve(functions.saveLinksMds(route));
     }
   } else {
+    console.log(route);
     reject(new Error(`No se encuentra la ruta: ${path.resolve(route)}`));
   }
 });

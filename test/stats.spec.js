@@ -7,39 +7,25 @@ const relativePath = path.join('test', 'pruebas', 'readmefalse.md');
 const array = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     status: 200,
     statusText: 'OK',
     text: 'Node.js',
   },
+
   {
     href: 'https://nodejs.org/es/.co',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     status: 404,
     statusText: 'FAIL',
     text: 'Node.js',
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
+    text: 'Noesuunlink.js',
     status: 'ERR',
     statusText: 'FAIL',
-    text: 'Noesuunlink.js',
-  },
-
-  {
-    href: 'https://noesunlink.or/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    status: 'ERR',
-    statusText: 'FAIL',
-    text: 'Noesuunlink.js',
-  },
-  {
-    href: 'https://noesunlink.or/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    status: 'ERR',
-    statusText: 'FAIL',
-    text: 'Noesuunlink.js',
   },
 ];
 
@@ -49,7 +35,7 @@ describe('Broken links', () => {
     done();
   });
   it('Debería retornar la cantidad de links rotos', (done) => {
-    expect(stats.brokenLinks(array)).toBe(4);
+    expect(stats.brokenLinks(array)).toBe(2);
     done();
   });
 });
@@ -60,7 +46,7 @@ describe('Broken links', () => {
     done();
   });
   it('Debería retornar la cantidad de links unicos', (done) => {
-    expect(stats.uniquesLinks(array)).toBe(4);
+    expect(stats.uniquesLinks(array)).toBe(3);
     done();
   });
 });

@@ -35,14 +35,14 @@ const thisIsMd = (route) => {
   const arrayTheFilesMd = verifityFiles(route).filter((element) => (path.extname(element) === '.md'));
   return arrayTheFilesMd;
 };
-// console.log(thisIsMd('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
+// console.log(thisIsMd('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
 
 const readArchive = (route) => {
   const lectureTheArchive = fs.readFileSync(route, 'utf8');
   return lectureTheArchive;
 };
 
-// console.log(readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md'));
+// console.log(readArchive('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md'));
 
 
 const saveLinksMds = (inputRoute) => {
@@ -65,8 +65,8 @@ const saveLinksMds = (inputRoute) => {
   });
   return arrayofLinks;
 };
-// eslint-disable-next-line no-console
-// console.log(saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas'));
+
+// console.log(saveLinksMds('/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md'));
 
 module.exports = {
   pathAbsolute,

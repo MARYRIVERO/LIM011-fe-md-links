@@ -1,3 +1,4 @@
+const path = require('path');
 const fetchMock = require('fetch-mock');
 const functions = require('../src/index.js');
 
@@ -9,11 +10,11 @@ describe('.pathAbsolute', () => {
     expect(typeof functions.pathAbsolute).toBe('function');
   });
   it('retorna true si la ruta es absoluta', () => {
-    expect(functions.pathAbsolute('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
+    expect(functions.pathAbsolute(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))).toBe(true);
   });
 
   it('retorna false si la ruta relativa', () => {
-    expect(functions.pathAbsolute('./README.md')).toBe(false);
+    expect(functions.pathAbsolute('test/pruebas/readmefalse.md')).toBe(false);
   });
 });
 
@@ -22,7 +23,7 @@ describe('resolveToAbsolute', () => {
     expect(typeof functions.resolveToAbsolute).toBe('function');
   });
   it('resuelve una ruta relativa a absoluta', () => {
-    expect(functions.resolveToAbsolute('./README.md')).toBe('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md');
+    expect(functions.resolveToAbsolute('test/pruebas/readmefalse.md')).toBe(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'));
   });
 });
 
@@ -31,10 +32,10 @@ describe('identifyFile', () => {
     expect(typeof functions.identifyFile).toBe('function');
   });
   it('identifica si la ruta recibida es un archivo', () => {
-    expect(functions.identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/README.md')).toBe(true);
+    expect(functions.identifyFile(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))).toBe(true);
   });
   it('identifica si la ruta recibida no es un archivo', () => {
-    expect(functions.identifyFile('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links')).toBe(false);
+    expect(functions.identifyFile(path.join(process.cwd(), 'test', 'pruebas'))).toBe(false);
   });
 });
 
@@ -43,16 +44,16 @@ describe('verifityFiles', () => {
     expect(typeof functions.verifityFiles).toBe('function');
   });
   it('Debería retornar un array de archivos', () => {
-    expect(functions.verifityFiles('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json')).toStrictEqual(['/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/package.json']);
+    expect(functions.verifityFiles(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))).toStrictEqual([(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))]);
   });
 });
 
 describe('thisIsMd', () => {
-  const arrayInput = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas';
+  const arrayInput = path.join(process.cwd(), 'test', 'pruebas');
   const arrayOutput = [
-    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md',
-    '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md'];
+    path.join(process.cwd(), 'test', 'pruebas', 'node.md'),
+    path.join(process.cwd(), 'test', 'pruebas', 'prueba.md'),
+    path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md')];
 
   it('Debería retornar function', () => {
     expect(typeof functions.thisIsMd).toBe('function');
@@ -67,7 +68,7 @@ describe('readArchive', () => {
     expect(typeof functions.readArchive).toBe('function');
   });
   it('Debería leer un archivo', () => {
-    expect(functions.readArchive('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/prueba.md')).toStrictEqual('esto es un texto');
+    expect(functions.readArchive(path.join(process.cwd(), 'test', 'pruebas', 'prueba.md'))).toStrictEqual('esto es un texto');
   });
 });
 describe('saveLinksMds', () => {
@@ -75,22 +76,21 @@ describe('saveLinksMds', () => {
     expect(typeof functions.saveLinksMds).toBe('function');
   });
   it('Debería buscar los links presentes', () => {
-    expect(functions.saveLinksMds('/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md')).toStrictEqual([
+    expect(functions.saveLinksMds(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))).toStrictEqual([
       {
         href: 'https://nodejs.org/es/',
-        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'Node.js',
+        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
       },
-
       {
-        href: 'https://developers.google.com/v8/',
-        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-        text: 'motor de JavaScript V8 de Chrome',
+        href: 'https://nodejs.org/es/.co',
+        text: 'Node.js',
+        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
       },
       {
         href: 'https://nodefdjs.org/es/',
-        path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
         text: 'Noesuunlink.js',
+        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
       },
     ]);
   });

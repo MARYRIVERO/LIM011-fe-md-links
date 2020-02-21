@@ -1,25 +1,26 @@
-const validate = require('../src/validateLinks.js');
+const path = require('path');
+const validate = require('../src/validate.js');
 
-const ruta = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
+const ruta = path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md');
 const output = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     status: 200,
     statusText: 'OK',
     text: 'Node.js',
   },
 
   {
-    href: 'https://developers.google.com/v8/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    status: 200,
-    statusText: 'OK',
-    text: 'motor de JavaScript V8 de Chrome',
+    href: 'https://nodejs.org/es/.co',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
+    status: 404,
+    statusText: 'FAIL',
+    text: 'Node.js',
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     text: 'Noesuunlink.js',
     status: 'ERR',
     statusText: 'FAIL',

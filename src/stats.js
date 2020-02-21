@@ -1,6 +1,6 @@
 const path = require('path');
 const functionsIndex = require('./index.js');
-const functionsValidate = require('./validateLinks');
+const functionsValidate = require('./validate');
 
 const optionValidate = (route) => new Promise((resolve) => {
   functionsValidate.validateLink(route)

@@ -5,47 +5,42 @@ const functions = require('../src/mdLinks.js');
 
 // jest.mock('node-fetch);
 
-const ruta = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
 const output = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     text: 'Node.js',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
   },
-
   {
-    href: 'https://developers.google.com/v8/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    text: 'motor de JavaScript V8 de Chrome',
+    href: 'https://nodejs.org/es/.co',
+    text: 'Node.js',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
     text: 'Noesuunlink.js',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
   },
 ];
-
-const rutaTwo = '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md';
-
 const output2 = [
   {
     href: 'https://nodejs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     status: 200,
     statusText: 'OK',
     text: 'Node.js',
   },
 
   {
-    href: 'https://developers.google.com/v8/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
-    status: 200,
-    statusText: 'OK',
-    text: 'motor de JavaScript V8 de Chrome',
+    href: 'https://nodejs.org/es/.co',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
+    status: 404,
+    statusText: 'FAIL',
+    text: 'Node.js',
   },
   {
     href: 'https://nodefdjs.org/es/',
-    path: '/home/laboratoria/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/node.md',
+    path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
     text: 'Noesuunlink.js',
     status: 'ERR',
     statusText: 'FAIL',
@@ -57,13 +52,13 @@ describe('Md links', () => {
     expect(typeof functions.mdLinks).toBe('function');
   });
   it('Debería retornar el link del primer elemento del array de links', () => {
-    functions.mdLinks(ruta, { validate: false }).then((response) => {
+    functions.mdLinks(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'), { validate: false }).then((response) => {
       expect(response).toStrictEqual(output);
     });
   });
 
   it('Debería retornar el link del primer elemento del array de links', (done) => {
-    functions.mdLinks(rutaTwo, { validate: true }).then((response) => {
+    functions.mdLinks(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'), { validate: true }).then((response) => {
       expect(response).toStrictEqual(output2);
       done();
     });

@@ -1,7 +1,5 @@
 const fetch = require('node-fetch');
 const routes = require('./index.js');
-// `${process.cwd()}/README.md`
-
 
 const validateLink = (route) => {
   const arrayOfLinks = routes.saveLinksMds(route);
