@@ -1,9 +1,10 @@
-#! /usr/bin/env nodo
+#! /usr/bin/env node
 
 const colors = require('colors');
 const functionsCliMdLinks = require('./cliMdLinks.js');
 
 const route = process.argv[2];
+// console.log(process.argv);
 const options = {
   stats: false,
   validate: false,
