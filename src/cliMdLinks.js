@@ -6,11 +6,18 @@ const functionsStats = require('./stats.js');
 
 // console.log(validate);
 
-const cliMdLinks = (route, options) => new Promise((resolve, reject) => {
+const cliMdLinks = (route, opts) => new Promise((resolve, reject) => {
+  let options;
+  if (opts === undefined) {
+    options = { validate: false, stats: false };
+  } else options = opts;
+
+  if (options.validate === undefined) options.validate = false;
+  if (options.stats === undefined) options.stats = false;
   functionMdLinks.mdLinks(route, options)
     .then((links) => {
       if (links.length === 0) {
-        resolve('El archivo o directorio no cuentiene links');
+        resolve('El archivo o directorio no contiene links');
       } else if (options && options.stats && options.validate) {
         resolve(functionsStats.optionsValidateStats(route));
       } else if (options && options.stats) {

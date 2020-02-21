@@ -75,22 +75,23 @@ describe('saveLinksMds', () => {
   it('Debería retornar function', () => {
     expect(typeof functions.saveLinksMds).toBe('function');
   });
+
   it('Debería buscar los links presentes', () => {
     expect(functions.saveLinksMds(path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'))).toStrictEqual([
       {
         href: 'https://nodejs.org/es/',
         text: 'Node.js',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
+        path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
       },
       {
         href: 'https://nodejs.org/es/.co',
         text: 'Node.js',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
+        path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
       },
       {
         href: 'https://nodefdjs.org/es/',
         text: 'Noesuunlink.js',
-        path: '/home/terislos/Proyecto nuevo/LIM011-fe-md-links/test/pruebas/readmefalse.md',
+        path: path.join(process.cwd(), 'test', 'pruebas', 'readmefalse.md'),
       },
     ]);
   });

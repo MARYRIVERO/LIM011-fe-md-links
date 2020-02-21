@@ -4,18 +4,21 @@ const functions = require('./index.js');
 const functionValidate = require('./validate.js');
 
 
-const mdLinks = (route, options) => new Promise((resolve, reject) => {
-  if (fs.existsSync(route)) {
-    if (options.validate === true) {
-      resolve(functionValidate.validateLink(route));
-    } if (options.validate === false) {
-      resolve(functions.saveLinksMds(route));
+const mdLinks = (route, options) => {
+  console.log(options);
+  return new Promise((resolve, reject) => {
+    if (fs.existsSync(route)) {
+      if (options.validate === true) {
+        resolve(functionValidate.validateLink(route));
+      } if (options.validate === false) {
+        resolve(functions.saveLinksMds(route));
+      }
+    } else {
+      console.log(route);
+      reject(new Error(`No se encuentra la ruta: ${path.resolve(route)}`));
     }
-  } else {
-    console.log(route);
-    reject(new Error(`No se encuentra la ruta: ${path.resolve(route)}`));
-  }
-});
+  });
+};
 
 // mdLinks('no-route', { validate: true }).catch((e) => console.log(e));
 

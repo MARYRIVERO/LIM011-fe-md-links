@@ -1,4 +1,4 @@
-#! / usr / bin / env nodo
+#! /usr/bin/env nodo
 
 const colors = require('colors');
 const functionsCliMdLinks = require('./cliMdLinks.js');

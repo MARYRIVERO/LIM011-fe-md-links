@@ -8,7 +8,7 @@ const relativePath = path.join('test', 'pruebas', 'readmefalse.md');
 
 
 describe('cli mdlinks', () => {
-  it('should show a message: El archivo o directorio no cuentiene links ', (done) => functionsCliMdlinks.cliMdLinks(path.join(process.cwd(), 'src'))
+  it('should show a message: El archivo o directorio no cuentiene links ', (done) => functionsCliMdlinks.cliMdLinks((path.join(process.cwd(), 'src')))
     .then((result) => {
       expect(result).toEqual('El archivo o directorio no contiene links');
       done();
@@ -30,7 +30,7 @@ describe('cli mdlinks', () => {
     }));
   it('should return an string with the links', (done) => functionsCliMdlinks.cliMdLinks(mdFile)
     .then((result) => {
-      expect(result).toEqual(`${relativePath} https://nodejs.org/es/ Node.js\n${relativePath} https://nodejs.org/es/.co Node.js\n${relativePath} https://nodefdjs.org/es/ roto`);
+      expect(result).toEqual(`${relativePath} https://nodejs.org/es/ Node.js\n${relativePath} https://nodejs.org/es/.co Node.js\n${relativePath} https://nodefdjs.org/es/ Noesuunlink.js`);
       done();
     }));
   it('should show a message: No se encuentra la ruta', (done) => functionsCliMdlinks.cliMdLinks('no-route')
